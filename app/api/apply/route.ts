@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 
 		// 2️⃣ Send notification email to YOU
 		await resend.emails.send({
-			from: "ASCEND <onboarding@resend.dev>", // change after domain verification
+			from: "ASCEND <onboarding@resend.dev>", 
 			to: "ascendd.now@gmail.com", // ← PUT YOUR REAL EMAIL HERE
 			replyTo: data.email,
 			subject: "New ASCEND Application",
