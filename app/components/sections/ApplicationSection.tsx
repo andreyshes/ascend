@@ -7,7 +7,6 @@ import { CheckCircle2, Loader2, ArrowRight } from "lucide-react";
 type FormState = {
 	full_name: string;
 	email: string;
-	phone: string;
 	goal: string;
 	experience_level: string;
 	commitment_level: string;
@@ -21,7 +20,6 @@ export default function ApplicationSection() {
 	const [form, setForm] = useState<FormState>({
 		full_name: "",
 		email: "",
-		phone: "",
 		goal: "physique_transformation",
 		experience_level: "intermediate",
 		commitment_level: "high",
