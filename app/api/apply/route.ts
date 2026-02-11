@@ -3,8 +3,6 @@ import { z } from "zod";
 import { prisma } from "@/app/lib/prisma";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const ApplicationSchema = z.object({
 	full_name: z.string().min(2, "Full name must be at least 2 characters"),
 	email: z.string().email("Invalid email format"),
@@ -17,7 +15,6 @@ const ApplicationSchema = z.object({
 export async function POST(req: Request) {
 	try {
 		const body = await req.json();
-
 		const result = ApplicationSchema.safeParse(body);
 
 		if (!result.success) {
@@ -32,15 +29,28 @@ export async function POST(req: Request) {
 
 		const data = result.data;
 
+		// Initialize Resend INSIDE handler
+		const apiKey = process.env.RESEND_API_KEY;
+
+		if (!apiKey) {
+			console.error("Missing RESEND_API_KEY");
+			return NextResponse.json(
+				{ success: false, error: "Email service not configured" },
+				{ status: 500 },
+			);
+		}
+
+		const resend = new Resend(apiKey);
+
 		// 1️⃣ Save to database
 		const application = await prisma.application.create({
 			data,
 		});
 
-		// 2️⃣ Send notification email to YOU
+		// 2️⃣ Send notification email to you
 		await resend.emails.send({
-			from: "ASCEND <onboarding@resend.dev>", 
-			to: "ascendd.now@gmail.com", // ← PUT YOUR REAL EMAIL HERE
+			from: "ASCEND <onboarding@resend.dev>",
+			to: "ascendd.now@gmail.com",
 			replyTo: data.email,
 			subject: "New ASCEND Application",
 			html: `
