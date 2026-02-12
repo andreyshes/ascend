@@ -5,9 +5,6 @@ import Link from "next/link";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { ArrowRight, ChevronRight, Zap, BarChart3, Binary } from "lucide-react";
 
-/** * 1. ANIMATION CONSTANTS
- * Typed correctly to avoid the previous TS error
- */
 const fadeInProps: HTMLMotionProps<"div"> = {
 	initial: { opacity: 0, y: 30 },
 	whileInView: { opacity: 1, y: 0 },
@@ -57,7 +54,7 @@ export default function StrengthPhysiquePage() {
 			<section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 				<div className="absolute inset-0 z-0">
 					<Image
-						src="/coach.jpg" // Ensure this is a high-res shot of heavy lifting/plates
+						src="/coach.jpg"
 						alt="Advanced strength and physique coaching"
 						fill
 						priority

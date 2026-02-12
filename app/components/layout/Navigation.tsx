@@ -32,9 +32,6 @@ export default function Navigation() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	/**
-	 * Smart Navigation Handler
-	 */
 	const handleNav = useCallback(
 		(e: React.MouseEvent, href: string) => {
 			setMobileOpen(false);
@@ -46,11 +43,9 @@ export default function Navigation() {
 				const el = document.getElementById(targetId);
 				if (el) {
 					el.scrollIntoView({ behavior: "smooth" });
-					// Update URL without refresh
 					window.history.pushState({}, "", href);
 				}
 			}
-			// Otherwise, let the default Link behavior take them to the new page/home section
 		},
 		[pathname],
 	);

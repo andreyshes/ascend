@@ -56,7 +56,7 @@ export default function TransformationPage() {
 			<section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
 				<div className="absolute inset-0 z-0">
 					<Image
-						src="/coach.jpg"
+						src="/transform.jpg"
 						alt="Elite online fitness transformation coaching"
 						fill
 						priority
