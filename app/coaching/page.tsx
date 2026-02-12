@@ -77,16 +77,13 @@ const SectionHeader = ({
 );
 
 export default function CoachingPage() {
-	// REMOVED the duplicate 'const fadeIn' that was here.
-	// It was overriding the correctly typed one above.
-
 	return (
 		<main className="bg-[#0A0A0A] text-[#E8E4DE] selection:bg-[#C9A96E] selection:text-black">
 			{/* HERO SECTION */}
 			<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 				<div className="absolute inset-0 z-0">
 					<Image
-						src="/coach.jpg"
+						src="/transform 2.jpg"
 						alt="Private 1:1 elite fitness coaching"
 						fill
 						priority
