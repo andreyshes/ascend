@@ -107,7 +107,7 @@ export default function AboutSection() {
 
 							<div>
 								<span className="text-3xl font-extralight text-[#C9A96E]">
-									12+
+									5+
 								</span>
 								<p className="text-[11px] tracking-[0.2em] uppercase text-[#6A6A6A] mt-1">
 									Years Coaching
